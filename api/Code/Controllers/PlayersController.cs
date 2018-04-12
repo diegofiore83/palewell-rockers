@@ -8,16 +8,16 @@ using PalewellRockers.Code.Models.Queries;
 namespace PalewellRockers.Code.Controllers
 {
     [Route("api/[controller]")]
-    public class PlayerController : Controller
+    public class PlayersController : Controller
     {
         private readonly FootballDbContext _context;
 
-        public PlayerController(FootballDbContext context)
+        public PlayersController(FootballDbContext context)
         {
             _context = context;
         }
 
-        [HttpGet("players", Name = "GetPlayers")]
+        [HttpGet("", Name = "GetPlayers")]
         public IEnumerable<Player> GetPlayers()
         {
           return _context.Players.FromSql("EXEC getPlayers").ToList();

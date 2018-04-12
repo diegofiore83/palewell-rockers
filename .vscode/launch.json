@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/api/bin/Debug/netcoreapp2.0/football-napoli.dll",
+            "program": "${workspaceFolder}/api/bin/Debug/netcoreapp2.0/palewell-rockers.dll",
             "args": [],
             "cwd": "${workspaceFolder}/api",
             "stopAtEntry": false,

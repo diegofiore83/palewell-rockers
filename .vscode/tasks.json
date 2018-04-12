@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/api/football-napoli.csproj"
+                "${workspaceFolder}/api/palewell-rockers.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
