@@ -35,6 +35,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+build/
 
 # Typescript v1 declaration files
 typings/
@@ -57,3 +58,13 @@ typings/
 # dotenv environment variables file
 .env
 
+# remove .css
+*.css
+
+# Api bin and obj (http://nodejs.org/api/addons.html)
+api/bin/
+api/obj/
+build/
+
+# Remove package-lock
+package-lock.json
