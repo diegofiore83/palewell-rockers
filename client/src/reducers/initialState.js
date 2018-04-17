@@ -1,5 +1,5 @@
 export default {
-  resource: {
-    players: [],
-  },
+    resource: {
+        players: [],
+    },
 };

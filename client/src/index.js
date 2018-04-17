@@ -12,12 +12,12 @@ const store = configureStore();
 const element = document.getElementById('root');
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <Route component={App} />
-    </Router>
-  </Provider>,
-  element
+    <Provider store={store}>
+        <Router>
+            <Route component={App} />
+        </Router>
+    </Provider>,
+    element
 );
 
 registerServiceWorker();
