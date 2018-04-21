@@ -57,6 +57,7 @@ News.defaultProps = {
 
 const mapStateToProps = state => ({
     news: state.resource.news,
+    isLoading: state.resource.isLoading,
 });
 
 export default connect(mapStateToProps, {

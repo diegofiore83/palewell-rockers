@@ -60,6 +60,7 @@ Players.defaultProps = {
 
 const mapStateToProps = state => ({
     players: state.resource.players,
+    isLoading: state.resource.isLoading,
 });
 
 export default connect(mapStateToProps, {
