@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import getPlayers from '../actions/resource/resourceActions';
+import { getPlayers } from '../actions/resource/resourceActions';
 import logo from '../logo.svg';
 import '../App.css';
 
@@ -38,7 +38,19 @@ class Players extends Component {
 Players.propTypes = {
     getPlayers: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
-    players: PropTypes.arrayOf(PropTypes.object),
+    players: PropTypes.arrayOf(
+        PropTypes.shape({
+            dateOfBirth: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            email: PropTypes.string.isRequired,
+            favouriteTeam: PropTypes.string.isRequired,
+            fullname: PropTypes.string.isRequired,
+            nationality: PropTypes.string.isRequired,
+            phoneNumber: PropTypes.string.isRequired,
+            position: PropTypes.string.isRequired,
+            shortname: PropTypes.string.isRequired,
+        })
+    ),
 };
 
 Players.defaultProps = {
