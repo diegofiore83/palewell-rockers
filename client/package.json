@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@storybook/addon-actions": "^3.4.2",
-    "@storybook/addon-links": "^3.4.2",
-    "@storybook/addons": "^3.4.2",
-    "@storybook/react": "^3.4.2",
     "axios": "^0.18.0",
     "history": "^4.7.2",
     "husky": "^0.14.3",
@@ -33,9 +29,7 @@
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
