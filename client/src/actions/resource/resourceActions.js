@@ -1,22 +1,43 @@
-import axios from 'axios';
 import actions from './resourceTypes';
+import apiClient from '../../clients/apiClient';
 
-const { ERROR, REQUEST, SET_PLAYERS } = actions;
+const { ERROR, REQUEST, SET_PLAYERS, SET_NEWS } = actions;
 
 const parseException = ex =>
     (ex.response && ex.response.data && ex.response.data.message) ||
     'Something went wrong';
 
-export default () => async dispatch => {
+export const getNews = () => async dispatch => {
     dispatch({
         type: REQUEST,
     });
 
     try {
-        const response = await axios.get('http://localhost:5000/api/players', {
-            headers: { 'Content-Type': 'application/json' },
+        const data = await apiClient.getNews();
+        dispatch({
+            type: SET_NEWS,
+            payload: {
+                news: data,
+                isLoading: false,
+            },
         });
-        const { data } = response;
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            payload: {
+                message: parseException(error),
+            },
+        });
+    }
+};
+
+export const getPlayers = () => async dispatch => {
+    dispatch({
+        type: REQUEST,
+    });
+
+    try {
+        const data = await apiClient.getPlayers();
         dispatch({
             type: SET_PLAYERS,
             payload: {

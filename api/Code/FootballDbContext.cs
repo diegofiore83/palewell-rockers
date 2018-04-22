@@ -14,8 +14,10 @@ namespace PalewellRockers.Code
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Player>().HasKey(p => p.Shortname);
+            builder.Entity<News>().HasKey(p => p.Id);
         }
        
         public DbSet<Player> Players { get; set; }
+        public DbSet<News> News { get; set; }
     }
 }
