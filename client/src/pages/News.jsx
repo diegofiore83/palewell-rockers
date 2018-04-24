@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getNews } from '../actions/resource/resourceActions';
 import logo from '../logo.svg';
-import '../App.css';
 
 class News extends Component {
     componentDidMount() {
@@ -25,9 +24,9 @@ class News extends Component {
         const output = isLoading ? <div>LOADING...</div> : newsOutput;
 
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
+            <div className="app">
+                <div className="app-header">
+                    <img src={logo} className="app-logo" alt="logo" />
                     <h2>News</h2>
                 </div>
                 {output}

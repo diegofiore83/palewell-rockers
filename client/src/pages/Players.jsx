@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getPlayers } from '../actions/resource/resourceActions';
 import logo from '../logo.svg';
-import '../App.css';
 
 class Players extends Component {
     componentDidMount() {
@@ -18,15 +17,15 @@ class Players extends Component {
         ));
 
         const output = isLoading ? (
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={logo} className="app-logo" alt="logo" />
         ) : (
             playersOutput
         );
 
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
+            <div className="app">
+                <div className="app-header">
+                    <img src={logo} className="app-logo" alt="logo" />
                     <h2>Players</h2>
                 </div>
                 {output}
