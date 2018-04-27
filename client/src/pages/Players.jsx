@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getPlayers } from '../actions/resource/resourceActions';
-import logo from '../logo.svg';
 
 class Players extends Component {
     componentDidMount() {
@@ -16,18 +15,11 @@ class Players extends Component {
             <li key={player.shortname}>{player.fullname}</li>
         ));
 
-        const output = isLoading ? (
-            <img src={logo} className="app-logo" alt="logo" />
-        ) : (
-            playersOutput
-        );
+        const output = isLoading ? <div>LOADING...</div> : playersOutput;
 
         return (
             <div className="app">
-                <div className="app-header">
-                    <img src={logo} className="app-logo" alt="logo" />
-                    <h2>Players</h2>
-                </div>
+                <h2>Players</h2>
                 {output}
             </div>
         );

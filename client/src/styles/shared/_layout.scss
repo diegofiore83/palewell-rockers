@@ -7,36 +7,24 @@ body {
   padding: 0;
 }
 
-.app {
-  text-align: center;
-}
+// Shared classes
+.content-container {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
 
-.app-logo {
-  animation: app-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.app-header {
-  background-color: $primary-colour;
-  color: $white-colour;
-  height: 150px;
-  padding: 20px;
-}
-
-.app-title {
-  font-size: 1.5em;
-}
-
-.app-intro {
-  font-size: large;
-}
-
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
   }
+}
 
-  to {
-    transform: rotate(360deg);
+.page-content {
+  background-color: $primary-colour;
+
+  .content-container {
+    color: $secondary-colour;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
   }
 }

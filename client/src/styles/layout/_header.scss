@@ -1,3 +1,314 @@
 header {
-  background-color: $primary-colour;
+  .page-header-bar {
+    background-color: $primary-colour;
+    height: 56px;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 51;
+
+    @include desktop {
+      height: 100px;
+    }
+
+    .page-header-logo {
+      @include desktop {
+        padding-top: 15px;
+      }
+
+      .page-header-logo-url {
+        .page-header-logo-image {
+          margin: 5px;
+          height: 50px;
+
+          @include desktop {
+            margin: 0;
+            height: 80px;
+          }
+        }
+      }
+    }
+
+    .page-header-menu-button {
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      top: 7px;
+
+      .page-header-menu-text {
+        text-transform: uppercase;
+        font-size: 14px;
+        color: $secondary-colour;
+      }
+
+      @include desktop {
+        display: none;
+      }
+
+      .page-header-menu-hamburger {
+        padding: 10px 10px;
+        display: inline-block;
+        cursor: pointer;
+        vertical-align: middle;
+
+        transition-property: opacity, filter;
+        transition-duration: 0.15s;
+        transition-timing-function: linear;
+
+        font: inherit;
+        color: inherit;
+        text-transform: none;
+        background-color: transparent;
+        border: 0;
+        margin: 0;
+        overflow: visible;
+        outline: none;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        .hamburger-box {
+          width: 24px;
+          height: 17px;
+          display: inline-block;
+          position: relative;
+
+          .hamburger-inner {
+            display: block;
+            top: 50%;
+            margin-top: 3px / -2;
+            transition-duration: 0.1s;
+            transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+            &,
+            &::before,
+            &::after {
+              width: 24px;
+              height: 3px;
+              background-color: $secondary-colour;
+              border-radius: 0.25em;
+              position: absolute;
+              transition-property: transform;
+              transition-duration: 0.15s;
+              transition-timing-function: ease;
+            }
+
+            &::before,
+            &::after {
+              content: "";
+              display: block;
+            }
+
+            &::before {
+              top: -7px;
+              transition: top 0.1s 0.14s ease, opacity 0.1s ease;
+            }
+
+            &::after {
+              bottom: -7px;
+              transition: bottom 0.1s 0.14s ease,
+                transform 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+          }
+        }
+
+        &.is-active {
+          .hamburger-inner {
+            transform: rotate(45deg);
+            transition-delay: 0.14s;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+            &::before {
+              top: 0;
+              opacity: 0;
+              transition: top 0.1s ease, opacity 0.1s 0.14s ease;
+            }
+
+            &::after {
+              bottom: 0;
+              transform: rotate(-90deg);
+              transition: bottom 0.1s ease,
+                transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+          }
+        }
+      }
+    }
+  }
+  .page-header-content {
+    background-color: $secondary-colour;
+    position: relative;
+    z-index: 40;
+
+    .page-header-navigation {
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba($secondary-colour, 0.97);
+      box-shadow: rgba($secondary-colour, 0.75) 0 0 10px;
+      z-index: 50;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      transform: translateY(-100%);
+      transition: all ease-in-out 0.5s;
+      display: none;
+
+      ul {
+        margin-top: 60px;
+        margin-bottom: 60px;
+
+        @include tablet-only {
+          margin-top: 70px;
+          margin-bottom: 70px;
+        }
+
+        @include desktop {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+        li {
+          display: block;
+          font-size: 1.5em;
+          line-height: 1.75em;
+          position: relative;
+          text-align: left;
+          padding-left: 14px;
+          padding-right: 14px;
+
+          a {
+            color: $white-colour;
+            text-decoration: none;
+            display: inline-block;
+
+            .sprite,
+            .text {
+              transition: color linear 0.1s;
+              white-space: nowrap;
+            }
+
+            @include desktop {
+              &:hover {
+                .sprite,
+                .text {
+                  opacity: 1;
+                }
+
+                .text {
+                  color: $terziary-colour;
+                }
+              }
+            }
+
+            &.is-selected {
+              color: $terziary-colour;
+
+              @include desktop {
+                &:after {
+                  content: "";
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  height: 4px;
+                  width: 100%;
+                  background-color: $terziary-colour;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.is-visible {
+        display: block;
+      }
+
+      &.is-animated {
+        transform: translateY(0);
+      }
+
+      @include tablet-only {
+        ul {
+          li {
+            &:first-child {
+              margin-top: 1em;
+            }
+          }
+        }
+      }
+
+      @include desktop {
+        position: relative;
+        display: block;
+        background-color: $secondary-colour;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 0;
+        transform: none;
+        right: auto;
+
+        ul {
+          display: flex;
+          align-items: stretch;
+          flex-direction: row;
+          justify-content: flex-start;
+
+          li {
+            flex: 1 0 auto;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 1em;
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            position: relative;
+
+            &:first-child {
+              margin-top: 0;
+            }
+
+            a {
+              display: inline-block;
+              text-decoration: none;
+              width: 100%;
+              line-height: 2.5em;
+              box-sizing: border-box;
+
+              .sprite,
+              .text {
+                transition: color linear 0.1s;
+                white-space: nowrap;
+              }
+
+              &:hover {
+                .sprite,
+                .text {
+                  opacity: 1;
+                }
+
+                .text {
+                  color: $terziary-colour;
+                }
+              }
+            }
+
+            &.is-selected {
+              &:after {
+                top: auto;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

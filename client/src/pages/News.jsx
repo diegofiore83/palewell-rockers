@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getNews } from '../actions/resource/resourceActions';
-import logo from '../logo.svg';
 
 class News extends Component {
     componentDidMount() {
@@ -25,10 +24,7 @@ class News extends Component {
 
         return (
             <div className="app">
-                <div className="app-header">
-                    <img src={logo} className="app-logo" alt="logo" />
-                    <h2>News</h2>
-                </div>
+                <h2>News</h2>
                 {output}
             </div>
         );
