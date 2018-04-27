@@ -1,0 +1,14 @@
+footer {
+  background-color: $primary-colour;
+  padding-top: 1em;
+
+  .copyright-text {
+    color: $white-colour;
+    display: block;
+    font-size: 14px;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    padding: 0 2em;
+    text-align: center;
+  }
+}

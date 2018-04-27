@@ -32,6 +32,7 @@
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -40,6 +41,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "7.4.0",
     "stylelint": "^9.2.0",
-    "stylelint-config-standard": "^18.2.0"
+    "stylelint-config-sass-guidelines": "^5.0.0",
+    "stylelint-scss": "^3.0.1"
   }
 }
