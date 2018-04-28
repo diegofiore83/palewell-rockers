@@ -10,18 +10,20 @@ class Player extends React.Component {
         return (
             <div className="player-card">
                 <div title={playerData.nationality} className={classNames('flag', this.getCountryCode(playerData.nationality))}></div>
-                <h3>
+                <div className="player-card-name">
                     {playerData.fullname}
-                </h3>
-                <img alt="" src={this.buildImageUrl(playerData.shortname)}/>
+                </div>
+                <object className="player-card-picture" data={this.buildImageUrl(playerData.shortname)} type="image/jpg">
+                    <img  className="player-card-picture" alt="" src={this.buildImageUrl('no-picture')}/>
+                </object>
                 <div>
-                    Born: {this.formatDateOfBirth(playerData.dateOfBirth)}
+                    <b>Born:</b> {this.formatDateOfBirth(playerData.dateOfBirth)}
                 </div>
                 <div>
-                    Position: {playerData.position}
+                    <b>Position:</b> {playerData.position}
                 </div>
                 <div>
-                    Favourite Team: {playerData.favouriteTeam}
+                    <b>Favourite Team:</b> {playerData.favouriteTeam}
                 </div>
                 <div className="player-card-description">
                     {playerData.description}

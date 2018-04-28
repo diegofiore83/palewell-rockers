@@ -17,10 +17,12 @@ class Players extends Component {
             <Player key={player.shortname} playerData={player}></Player>
         ));
 
-        const output = isLoading ? <div>LOADING...</div> : playersOutput;
+        const output = isLoading ? 
+            <div>LOADING...</div> : 
+            <div className="players-page-list">{playersOutput}</div>;
 
         return (
-            <div className="app">
+            <div className="players-page">
                 <h2>Players</h2>
                 {output}
             </div>
