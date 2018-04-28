@@ -54,7 +54,7 @@ class Header extends React.Component {
                     <div className="content-container">
                         <div className="page-header-logo">
                             <Link to="/" className="page-header-logo-url" title="palewell-rockers.co.uk">
-                                Palewel-Rockers.co.uk
+                                <div className="page-header-logo-image"></div>
                             </Link>
                         </div>
                         <div className="page-header-menu-button">

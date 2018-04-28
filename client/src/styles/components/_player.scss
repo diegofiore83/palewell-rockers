@@ -1,0 +1,22 @@
+.player-card {
+    position: relative;
+    background-color: $terziary-colour;
+    color: $white-colour;
+    margin: 20px 0;
+    padding: 20px;
+
+    .flag {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .player-card-name {
+        font-weight: bold; 
+    }
+
+    .player-card-description {
+        margin: 5px 0;
+        font-style: italic;
+    }
+}

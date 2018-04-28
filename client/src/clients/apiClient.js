@@ -1,10 +1,9 @@
 import axios from 'axios';
-
-const endpoint = 'http://localhost:5000/api';
+import { endpoints } from '../config/endpoints';
 
 export default class ApiClient {
     static async getPlayers() {
-        const apiResponse = await axios.get(`${endpoint}/players`, {
+        const apiResponse = await axios.get(`${endpoints.api}/players`, {
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -12,7 +11,7 @@ export default class ApiClient {
     }
 
     static async getNews() {
-        const apiResponse = await axios.get(`${endpoint}/news`, {
+        const apiResponse = await axios.get(`${endpoints.api}/news`, {
             headers: { 'Content-Type': 'application/json' },
         });
 

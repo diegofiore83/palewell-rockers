@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { arrayOf, bool, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { getNews } from '../actions/resource/resourceActions';
+import { newsType } from '../types';
 
 class News extends Component {
     componentDidMount() {
@@ -32,17 +33,9 @@ class News extends Component {
 }
 
 News.propTypes = {
-    getNews: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool,
-    news: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            title: PropTypes.string.isRequired,
-            body: PropTypes.string.isRequired,
-            createdDate: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
-        })
-    ),
+    getNews: func.isRequired,
+    isLoading: bool,
+    news: arrayOf(newsType),
 };
 
 News.defaultProps = {

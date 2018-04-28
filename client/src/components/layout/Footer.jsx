@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
     <footer>
-        <span className="footer-copyright">
+        <span className="copyright-text">
             ©2018 palewell-rockers.co.uk - all rights reserved
         </span>
     </footer>

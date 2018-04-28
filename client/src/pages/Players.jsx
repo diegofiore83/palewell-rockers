@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { func, bool, arrayOf } from 'prop-types';
 import { connect } from 'react-redux';
 import { getPlayers } from '../actions/resource/resourceActions';
+import Player from "../components/Player";
+import { playerType } from '../types';
 
 class Players extends Component {
     componentDidMount() {
@@ -12,7 +14,7 @@ class Players extends Component {
         const { isLoading, players } = this.props;
 
         const playersOutput = players.map(player => (
-            <li key={player.shortname}>{player.fullname}</li>
+            <Player key={player.shortname} playerData={player}></Player>
         ));
 
         const output = isLoading ? <div>LOADING...</div> : playersOutput;
@@ -27,21 +29,9 @@ class Players extends Component {
 }
 
 Players.propTypes = {
-    getPlayers: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool,
-    players: PropTypes.arrayOf(
-        PropTypes.shape({
-            dateOfBirth: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-            email: PropTypes.string.isRequired,
-            favouriteTeam: PropTypes.string.isRequired,
-            fullname: PropTypes.string.isRequired,
-            nationality: PropTypes.string.isRequired,
-            phoneNumber: PropTypes.string.isRequired,
-            position: PropTypes.string.isRequired,
-            shortname: PropTypes.string.isRequired,
-        })
-    ),
+    getPlayers: func.isRequired,
+    isLoading: bool,
+    players: arrayOf(playerType),
 };
 
 Players.defaultProps = {

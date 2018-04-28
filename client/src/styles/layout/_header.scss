@@ -1,6 +1,6 @@
 header {
   .page-header-bar {
-    background-color: $primary-colour;
+    background-color: $secondary-colour;
     height: 56px;
     overflow-y: hidden;
     position: relative;
@@ -17,10 +17,14 @@ header {
 
       .page-header-logo-url {
         .page-header-logo-image {
+          background: url("../images/logo.png") no-repeat; 
+          background-size: 135px 50px;
+
           margin: 5px;
           height: 50px;
 
           @include desktop {
+            background-size: 189px 70px;
             margin: 0;
             height: 80px;
           }
@@ -85,7 +89,7 @@ header {
             &::after {
               width: 24px;
               height: 3px;
-              background-color: $secondary-colour;
+              background-color: $primary-colour;
               border-radius: 0.25em;
               position: absolute;
               transition-property: transform;
@@ -136,7 +140,7 @@ header {
     }
   }
   .page-header-content {
-    background-color: $secondary-colour;
+    background-color: $primary-colour;
     position: relative;
     z-index: 40;
 
@@ -146,8 +150,8 @@ header {
       top: 0;
       height: 100%;
       width: 100%;
-      background-color: rgba($secondary-colour, 0.97);
-      box-shadow: rgba($secondary-colour, 0.75) 0 0 10px;
+      background-color: rgba($primary-colour, 0.97);
+      box-shadow: rgba($primary-colour, 0.75) 0 0 10px;
       z-index: 50;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
@@ -203,7 +207,7 @@ header {
             }
 
             &.is-selected {
-              color: $terziary-colour;
+              color: $secondary-colour;
 
               @include desktop {
                 &:after {
@@ -243,7 +247,7 @@ header {
       @include desktop {
         position: relative;
         display: block;
-        background-color: $secondary-colour;
+        background-color: $primary-colour;
         box-shadow: none;
         width: 100%;
         min-height: auto;
@@ -292,7 +296,7 @@ header {
                 }
 
                 .text {
-                  color: $terziary-colour;
+                  color: $secondary-colour;
                 }
               }
             }
