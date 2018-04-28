@@ -20,6 +20,11 @@ const isLocalhost = Boolean(
     )
 );
 
+const API_LOCAL_ENDPOINT = "http://localhost:5000/api";
+const API_SERVER_ENDPOINT = "/data/api";
+
+window.apiUrl = process.env.NODE_ENV === 'production' ? API_SERVER_ENDPOINT : API_LOCAL_ENDPOINT;
+
 export default function register() {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
