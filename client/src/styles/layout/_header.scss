@@ -207,7 +207,7 @@ header {
             }
 
             &.is-selected {
-              color: $secondary-colour;
+              color: $link-colour;
 
               @include desktop {
                 &:after {
@@ -217,7 +217,7 @@ header {
                   left: 0;
                   height: 4px;
                   width: 100%;
-                  background-color: $terziary-colour;
+                  background-color: $link-colour;
                   display: block;
                 }
               }
