@@ -3,6 +3,7 @@ import { arrayOf, bool, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { getNews } from '../actions/resource/resourceActions';
 import { newsType } from '../types';
+import NewsEntry from "../components/NewsEntry";
 
 class News extends Component {
     componentDidMount() {
@@ -13,15 +14,12 @@ class News extends Component {
         const { isLoading, news } = this.props;
 
         const newsOutput = news.map(newsEntry => (
-            <div key={newsEntry.id}>
-                <div>{newsEntry.title}</div>
-                <div>{newsEntry.body}</div>
-                <div>{newsEntry.createdDate}</div>
-                <div>{newsEntry.author}</div>
-            </div>
+            <NewsEntry key={newsEntry.id} newsData={newsEntry}></NewsEntry>
         ));
 
-        const output = isLoading ? <div>LOADING...</div> : newsOutput;
+        const output = isLoading ? 
+            <div>LOADING...</div> :
+            <div className="news-page-list">{newsOutput}</div> ;
 
         return (
             <div className="app">

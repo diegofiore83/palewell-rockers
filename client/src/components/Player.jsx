@@ -2,6 +2,7 @@ import React from 'react';
 import { playerType } from '../types';
 import classNames from 'classnames';
 import { endpoints } from '../config/endpoints';
+import { countryCodes } from '../config/country-codes';
 
 class Player extends React.Component {
     render() {
@@ -9,7 +10,7 @@ class Player extends React.Component {
 
         return (
             <div className="player-card">
-                <div title={playerData.nationality} className={classNames('flag', this.getCountryCode(playerData.nationality))}></div>
+                <div title={playerData.nationality} className={classNames('flag', countryCodes[playerData.nationality])}></div>
                 <div className="player-card-name">
                     {playerData.fullname}
                 </div>
@@ -39,20 +40,6 @@ class Player extends React.Component {
     formatDateOfBirth(dateOfBirth) {
         const dateObj = new Date(dateOfBirth);
         return `${dateObj.getDate()}/${dateObj.getMonth() + 1}/${dateObj.getFullYear()}`; 
-    }
-
-    //TODO: Save country code in DB and delete this function
-    getCountryCode(nationality) {
-        switch(nationality) {
-            case "Portuguese":
-                return "pt";
-            case "Italian":
-                return "it";
-            case "South African":
-                return "za";
-            default:
-                return "gb";
-        }
     }
 }
 
