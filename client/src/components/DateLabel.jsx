@@ -14,7 +14,8 @@ class DateLabel extends React.Component {
     formatDate(date) {
         const dateObj = new Date(date);
         let month = dateObj.getMonth() + 1;
-        return `${dateObj.getDate()}/${(month < 10 ? '0' : '') + month}/${dateObj.getFullYear()}`; 
+        let day = (dateObj.getDate() < 10 ? '0' : '') + dateObj.getDate();
+        return `${day}/${(month < 10 ? '0' : '') + month}/${dateObj.getFullYear()}`; 
     }
 }
 

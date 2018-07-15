@@ -74,7 +74,7 @@ class Header extends React.Component {
                         <nav className={classNames('page-header-navigation', {'is-visible': isMenuVisible, 'is-animated': isMenuAnimated})}>
                             <ul className="inline">
                                 <li><NavLink to="/" activeClassName="is-selected" exact strict><span className="text">Home</span></NavLink></li>
-                                <li><NavLink to="/news" activeClassName="is-selected" exact strict><span className="text">News</span></NavLink></li>
+                                <li><NavLink to="/news" activeClassName="is-selected" exact strict><span className="text">Match Reports</span></NavLink></li>
                                 <li><NavLink to="/players" activeClassName="is-selected" exact strict><span className="text">Players</span></NavLink></li>
                             </ul>
                         </nav>

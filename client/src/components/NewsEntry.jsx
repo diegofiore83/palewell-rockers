@@ -1,6 +1,7 @@
 import React from 'react';
 import { newsType } from '../types';
 import DateLabel from "../components/DateLabel";
+import Parser from 'html-react-parser';
 
 class NewsEntry extends React.Component {
     render() {
@@ -12,7 +13,7 @@ class NewsEntry extends React.Component {
                     {newsData.title}
                 </div>
                 <div className="news-card-body">
-                    {newsData.body}
+                    {Parser(newsData.body)}
                 </div>
                 <div className="news-card-metadata">
                     <b>By:</b> {newsData.author} | <DateLabel date={newsData.createdDate}></DateLabel>

@@ -8,6 +8,7 @@
     "classnames": "^2.2.5",
     "eslint-config-react-app": "^2.1.0",
     "history": "^4.7.2",
+    "html-react-parser": "^0.4.6",
     "husky": "^0.14.3",
     "keymirror": "^0.1.1",
     "lint-staged": "^7.0.4",

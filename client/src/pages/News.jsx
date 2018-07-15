@@ -23,7 +23,7 @@ class News extends Component {
 
         return (
             <div className="app">
-                <h2>News</h2>
+                <h2>Match Reports</h2>
                 {output}
             </div>
         );
