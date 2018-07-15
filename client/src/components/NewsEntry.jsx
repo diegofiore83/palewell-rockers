@@ -1,5 +1,6 @@
 import React from 'react';
 import { newsType } from '../types';
+import DateLabel from "../components/DateLabel";
 
 class NewsEntry extends React.Component {
     render() {
@@ -14,16 +15,10 @@ class NewsEntry extends React.Component {
                     {newsData.body}
                 </div>
                 <div className="news-card-metadata">
-                    <b>By:</b> {newsData.author} | {this.formatCreatedDate(newsData.createdDate)}
+                    <b>By:</b> {newsData.author} | <DateLabel date={newsData.createdDate}></DateLabel>
                 </div>
             </div>
         );
-    }
-
-    //TODO: Same logic as in the Players component. Updates results in the action already with the formatted date
-    formatCreatedDate(createdDate) {
-        const dateObj = new Date(createdDate);
-        return `${dateObj.getDate()}/${dateObj.getMonth() + 1}/${dateObj.getFullYear()}`;
     }
 }
 

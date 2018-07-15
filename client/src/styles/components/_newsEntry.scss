@@ -13,5 +13,9 @@
 
     .news-card-metadata {
         text-align: right;
+
+        .news-card-date {
+            display: inline;
+        }
     }
 }

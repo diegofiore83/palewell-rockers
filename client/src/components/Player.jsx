@@ -3,6 +3,7 @@ import { playerType } from '../types';
 import classNames from 'classnames';
 import { endpoints } from '../config/endpoints';
 import { countryCodes } from '../config/country-codes';
+import DateLabel from "../components/DateLabel";
 
 class Player extends React.Component {
     render() {
@@ -18,7 +19,7 @@ class Player extends React.Component {
                     <img  className="player-card-picture" alt="" src={this.buildImageUrl('no-picture')}/>
                 </object>
                 <div>
-                    <b>Born:</b> {this.formatDateOfBirth(playerData.dateOfBirth)}
+                    <b>Born:</b> <DateLabel date={playerData.dateOfBirth}></DateLabel>
                 </div>
                 <div>
                     <b>Position:</b> {playerData.position}
@@ -35,11 +36,6 @@ class Player extends React.Component {
 
     buildImageUrl(shortname) {
         return `${endpoints.assets}/players/${shortname}.jpg`;
-    }
-
-    formatDateOfBirth(dateOfBirth) {
-        const dateObj = new Date(dateOfBirth);
-        return `${dateObj.getDate()}/${dateObj.getMonth() + 1}/${dateObj.getFullYear()}`; 
     }
 }
 
