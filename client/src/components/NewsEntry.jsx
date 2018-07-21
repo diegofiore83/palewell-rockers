@@ -15,6 +15,9 @@ const styles = theme => ({
       paddingBottom: theme.spacing.unit * 2,
       marginTop: theme.spacing.unit * 3
     },
+    newsTitle: {
+        color: deepPurple['500'],
+    },
     author: {
         marginTop: theme.spacing.unit,
         color: deepPurple['500'],
@@ -33,7 +36,7 @@ class NewsEntry extends React.Component {
 
         return (
             <Paper className={classes.root} elevation={23}>
-                <Typography variant="headline" component="h3">
+                <Typography variant="headline" component="h3" className={classes.newsTitle}>
                     {newsData.title}
                 </Typography>
                 <Typography>
