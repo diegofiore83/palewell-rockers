@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getPlayers } from '../actions/resource/resourceActions';
 import Player from "../components/Player";
 import { playerType } from '../types';
+import { Typography } from '@material-ui/core';
 
 class Players extends Component {
     componentDidMount() {
@@ -23,7 +24,9 @@ class Players extends Component {
 
         return (
             <div className="players-page">
-                <h2>Players</h2>
+               <Typography variant="headline" component="h2">
+                    Players
+                </Typography>
                 {output}
             </div>
         );

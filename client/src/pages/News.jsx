@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getNews } from '../actions/resource/resourceActions';
 import { newsType } from '../types';
 import NewsEntry from "../components/NewsEntry";
+import { Typography } from '@material-ui/core';
 
 class News extends Component {
     componentDidMount() {
@@ -23,7 +24,9 @@ class News extends Component {
 
         return (
             <div className="app">
-                <h2>Match Reports</h2>
+                <Typography variant="headline" component="h2">
+                    Match Reports
+                </Typography>
                 {output}
             </div>
         );

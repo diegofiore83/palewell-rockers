@@ -2,33 +2,60 @@ import React from 'react';
 import { newsType } from '../types';
 import DateLabel from "../components/DateLabel";
 import Parser from 'html-react-parser';
+import { Paper, Typography } from '@material-ui/core';
+import { Person } from '@material-ui/icons';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import { deepPurple } from '@material-ui/core/colors';
+
+const styles = theme => ({
+    root: {
+      ...theme.mixins.gutters(),
+      paddingTop: theme.spacing.unit * 2,
+      paddingBottom: theme.spacing.unit * 2,
+      marginTop: theme.spacing.unit * 3
+    },
+    author: {
+        marginTop: theme.spacing.unit,
+        color: deepPurple['500'],
+        textAlign: 'right',
+    },
+    author_icon: {
+        color: deepPurple['500'],
+        verticalAlign: 'middle'
+      },
+  });
+  
 
 class NewsEntry extends React.Component {
-    render() {
-        const { newsData } = this.props;
+    render() {;
+        const { newsData, classes } = this.props;
 
         return (
-            <div className="news-card">
-                <div className="news-card-title">
+            <Paper className={classes.root} elevation={23}>
+                <Typography variant="headline" component="h3">
                     {newsData.title}
-                </div>
-                <div className="news-card-body">
+                </Typography>
+                <Typography>
                     {Parser(newsData.body)}
-                </div>
-                <div className="news-card-metadata">
-                    <b>By:</b> {newsData.author} | <DateLabel date={newsData.createdDate}></DateLabel>
-                </div>
-            </div>
+                </Typography>
+                <Typography variant="body1" className={classes.author}>
+                    <Person className={classes.author_icon} /> 
+                    {newsData.author} | <DateLabel date={newsData.createdDate}></DateLabel>
+                </Typography>
+            </Paper>
         );
     }
 }
 
 NewsEntry.propTypes = {
     newsData : newsType,
+    classes: PropTypes.object.isRequired,
 };
 
 NewsEntry.defaultProps = {
-    newsData: null
+    newsData: null,
+    classes: null
 };
 
-export default NewsEntry;
+export default withStyles(styles)(NewsEntry);   
