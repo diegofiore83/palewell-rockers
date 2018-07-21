@@ -5,5 +5,6 @@ export const countryCodes = {
     English: 'gb',
     Indian: 'in',
     Chinese: 'cn',
-    Spanish: 'es'
+    Spanish: 'es',
+    German: 'de'
 };
