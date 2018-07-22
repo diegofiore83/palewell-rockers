@@ -6,6 +6,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Players from "./pages/Players";
 import News from "./pages/News";
+import MatchReports from "./pages/MatchReports";
 
 const App = () => (
   <Fragment>
@@ -17,6 +18,7 @@ const App = () => (
           <Route component={Home} exact path="/" />
           <Route component={Players} path="/players" />
           <Route component={News} path="/news" />
+          <Route component={MatchReports} path="/match-reports" />
         </Switch>
       </div>
     </div>

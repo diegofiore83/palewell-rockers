@@ -18,4 +18,5 @@ export const newsType = shape({
     body: string.isRequired,
     createdDate: string.isRequired,
     author: string.isRequired,
+    isMatchReport: Boolean.isRequired
 });

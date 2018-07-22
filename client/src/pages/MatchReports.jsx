@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { arrayOf, bool, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { getNews } from '../actions/resource/resourceActions';
+import { getMatchReports } from '../actions/resource/resourceActions';
 import { newsType } from '../types';
 import NewsEntry from "../components/NewsEntry";
 import { Typography } from '@material-ui/core';
 
 class News extends Component {
     componentDidMount() {
-        this.props.getNews();
+        this.props.getMatchReports();
     }
 
     render() {
-        const { isLoading, news } = this.props;
+        const { isLoading, reports } = this.props;
 
-        const newsOutput = news.map(newsEntry => (
-            <NewsEntry key={newsEntry.id} newsData={newsEntry}></NewsEntry>
+        const newsOutput = reports.map(reportEntry => (
+            <NewsEntry key={reportEntry.id} newsData={reportEntry}></NewsEntry>
         ));
 
         const output = isLoading ? 
@@ -25,7 +25,7 @@ class News extends Component {
         return (
             <div className="app">
                 <Typography variant="headline" component="h2">
-                    News
+                    Match Reports
                 </Typography>
                 {output}
             </div>
@@ -34,21 +34,21 @@ class News extends Component {
 }
 
 News.propTypes = {
-    getNews: func.isRequired,
+    getMatchReports: func.isRequired,
     isLoading: bool,
-    news: arrayOf(newsType),
+    reports: arrayOf(newsType),
 };
 
 News.defaultProps = {
     isLoading: false,
-    news: [],
+    reports: [],
 };
 
 const mapStateToProps = state => ({
-    news: state.resource.news,
+    reports: state.resource.reports,
     isLoading: state.resource.isLoading,
 });
 
 export default connect(mapStateToProps, {
-    getNews,
+    getMatchReports,
 })(News);

@@ -8,19 +8,19 @@ using PalewellRockers.Code.Models.Queries;
 namespace PalewellRockers.Code.Controllers
 {
     [Route("api/[controller]")]
-    public class NewsController : Controller
+    public class ReportsController : Controller
     {
         private readonly FootballDbContext _context;
 
-        public NewsController(FootballDbContext context)
+        public ReportsController(FootballDbContext context)
         {
             _context = context;
         }
 
-        [HttpGet("", Name = "GetNews")]
-        public IEnumerable<News> GetNews()
+        [HttpGet("", Name = "GetReports")]
+        public IEnumerable<News> GetReports()
         {
-          return _context.News.FromSql("EXEC getNewsList @isMatchReport = 0").ToList();
+          return _context.News.FromSql("EXEC getNewsList @isMatchReport = 1").ToList();
         }
     }
 }

@@ -2,14 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import { CardContent, CardActions, Collapse, IconButton, Typography  } from "@material-ui/core";
+import { CardContent, CardActions, Collapse, IconButton, Typography, Tooltip, CardMedia, CardHeader,Card } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { playerType } from '../types';
 import { endpoints } from '../config/endpoints';
-import classNames from 'classnames';
 import { countryCodes } from '../config/country-codes';
 
 const styles = theme => ({
@@ -62,16 +58,18 @@ class Player extends React.Component {
 
       if (playerData.description && playerData.description.length) {
           bottomSection = 
-              <IconButton
-                  className={classnames(classes.expand, {
-                      [classes.expandOpen]: this.state.expanded
-                  })}
-                  onClick={this.handleExpandClick}
-                  aria-expanded={this.state.expanded}
-                  aria-label="Show more"
-                  >
-                  <ExpandMoreIcon />
-              </IconButton>;
+              <Tooltip title="Expand">
+                <IconButton
+                    className={classnames(classes.expand, {
+                        [classes.expandOpen]: this.state.expanded
+                    })}
+                    onClick={this.handleExpandClick}
+                    aria-expanded={this.state.expanded}
+                    aria-label="Expand"
+                    >
+                    <ExpandMoreIcon />
+                </IconButton>
+              </Tooltip>;
       }
 
       return (
@@ -79,7 +77,7 @@ class Player extends React.Component {
           <Card className={classes.card}>
             <CardHeader
               avatar={
-                  <div title={playerData.nationality} className={classNames('flag', countryCodes[playerData.nationality])}></div>
+                  <div title={playerData.nationality} className={classnames('flag', countryCodes[playerData.nationality])}></div>
               }
               title={playerData.fullname}
               subheader={this.formatDateOfBirth(playerData.dateOfBirth)}

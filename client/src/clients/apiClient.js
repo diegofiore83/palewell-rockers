@@ -17,4 +17,12 @@ export default class ApiClient {
 
         return apiResponse.data;
     }
+
+    static async getMatchReports() {
+        const apiResponse = await axios.get(`${endpoints.api}/reports`, {
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        return apiResponse.data;
+    }
 }

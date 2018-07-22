@@ -1,11 +1,35 @@
 import actions from './resourceTypes';
 import apiClient from '../../clients/apiClient';
 
-const { ERROR, REQUEST, SET_PLAYERS, SET_NEWS } = actions;
+const { ERROR, REQUEST, SET_PLAYERS, SET_NEWS, SET_MATCH_REPORTS } = actions;
 
 const parseException = ex =>
     (ex.response && ex.response.data && ex.response.data.message) ||
     'Something went wrong';
+
+export const getMatchReports = () => async dispatch => {
+    dispatch({
+        type: REQUEST,
+    });
+
+    try {
+        const data = await apiClient.getMatchReports();
+        dispatch({
+            type: SET_MATCH_REPORTS,
+            payload: {
+                reports: data,
+                isLoading: false,
+            },
+        });
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            payload: {
+                message: parseException(error),
+            },
+        });
+    }
+};
 
 export const getNews = () => async dispatch => {
     dispatch({
