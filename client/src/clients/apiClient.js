@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { endpoints } from '../config/endpoints';
 
-export default class ApiClient {
+export class ApiClient {
     static async getPlayers() {
         const apiResponse = await axios.get(`${endpoints.api}/players`, {
             headers: { 'Content-Type': 'application/json' },
@@ -20,6 +20,14 @@ export default class ApiClient {
 
     static async getMatchReports() {
         const apiResponse = await axios.get(`${endpoints.api}/reports`, {
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        return apiResponse.data;
+    }
+
+    static async getFixtures() {
+        const apiResponse = await axios.get(`${endpoints.api}/fixtures`, {
             headers: { 'Content-Type': 'application/json' },
         });
 

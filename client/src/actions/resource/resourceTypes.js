@@ -7,6 +7,7 @@ export default keyMirror(
         SET_PLAYERS: null,
         SET_NEWS: null,
         SET_MATCH_REPORTS: null,
+        SET_FIXTURES: null
     },
     'RESOURCE'
 );

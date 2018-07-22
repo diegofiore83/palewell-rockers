@@ -5,6 +5,7 @@ import { getNews } from '../actions/resource/resourceActions';
 import { newsType } from '../types';
 import NewsEntry from "../components/NewsEntry";
 import { Typography } from '@material-ui/core';
+import Loader from "../components/Loader";
 
 class News extends Component {
     componentDidMount() {
@@ -19,7 +20,7 @@ class News extends Component {
         ));
 
         const output = isLoading ? 
-            <div>LOADING...</div> :
+        <Loader/> :
             <div className="news-page-list">{newsOutput}</div> ;
 
         return (

@@ -5,6 +5,7 @@ import { getPlayers } from '../actions/resource/resourceActions';
 import Player from "../components/Player";
 import { playerType } from '../types';
 import { Typography } from '@material-ui/core';
+import Loader from "../components/Loader";
 
 class Players extends Component {
     componentDidMount() {
@@ -19,11 +20,11 @@ class Players extends Component {
         ));
 
         const output = isLoading ? 
-            <div>LOADING...</div> : 
+            <Loader/> : 
             <div className="players-page-list">{playersOutput}</div>;
 
         return (
-            <div className="players-page">
+            <div className="players-page">  
                <Typography variant="headline" component="h2">
                     Players
                 </Typography>

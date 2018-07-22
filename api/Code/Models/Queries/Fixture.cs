@@ -12,5 +12,6 @@ namespace PalewellRockers.Code.Models.Queries
     public DateTime Date { get; set; }
     public string Location { get; set; }
     public Boolean HomeMatch { get; set; }
+    public string ResultType { get; set; }
   }
 }

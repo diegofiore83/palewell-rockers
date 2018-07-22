@@ -1,7 +1,7 @@
 import resourceTypes from '../actions/actionTypes';
 import initialState from './initialState';
 
-const { ERROR, REQUEST, SET_PLAYERS, SET_NEWS, SET_MATCH_REPORTS } = resourceTypes;
+const { ERROR, REQUEST, SET_PLAYERS, SET_NEWS, SET_MATCH_REPORTS, SET_FIXTURES } = resourceTypes;
 
 export default function resourceReducer(state = initialState.resource, action) {
     switch (action.type) {
@@ -33,6 +33,12 @@ export default function resourceReducer(state = initialState.resource, action) {
             return {
                 ...state,
                 reports: action.payload.reports,
+                isLoading: false,
+            };
+        case SET_FIXTURES:
+            return {
+                ...state,
+                fixtures: action.payload.fixtures,
                 isLoading: false,
             };
         default:

@@ -20,3 +20,13 @@ export const newsType = shape({
     author: string.isRequired,
     isMatchReport: Boolean.isRequired
 });
+
+export const fixtureType = shape({
+    id: number.isRequired,
+    result: string,
+    opponent: string.isRequired,
+    date: string.isRequired,
+    location: string.isRequired,
+    homeMatch: Boolean.isRequired,
+    resultType: string
+});

@@ -3,5 +3,6 @@ export default {
         players: [],
         news: [],
         reports: [],
+        fixtures: [],
     },
 };

@@ -58,7 +58,7 @@ class Player extends React.Component {
 
       if (playerData.description && playerData.description.length) {
           bottomSection = 
-              <Tooltip title="Expand">
+              <Tooltip title="Expand" placement="right">
                 <IconButton
                     className={classnames(classes.expand, {
                         [classes.expandOpen]: this.state.expanded
