@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { func, bool, arrayOf, object } from 'prop-types';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
+import { ListItemText, ListItem, List, Avatar } from '@material-ui/core';
 import { getFixtures } from '../actions/resource/resourceActions';
 import { fixtureType } from '../types';
 import { connect } from 'react-redux';
 import DateLabel from "../components/DateLabel";
 import { withStyles } from '@material-ui/core/styles';
-import { deepPurple, red, green, yellow } from '@material-ui/core/colors';
+import { red, green, yellow } from '@material-ui/core/colors';
 import compose from 'recompose/compose';
+import Loader from "../components/Loader";
 
 const styles = theme => ({
     root: {
@@ -54,11 +52,15 @@ class Fixtures extends Component {
             </ListItem>
         ));
 
+        const output = isLoading ? 
+            <Loader/> : 
+            <List>
+                {fixturesOutput}
+            </List>;
+
         return (
             <div className={classes.root}>
-              <List>
-                {fixturesOutput}
-              </List>
+              {output}
             </div>
           );
     }

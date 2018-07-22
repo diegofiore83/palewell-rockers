@@ -26,9 +26,8 @@ const styles = theme => ({
     author_icon: {
         color: deepPurple['500'],
         verticalAlign: 'middle'
-      },
-  });
-  
+    },
+});
 
 class NewsEntry extends React.Component {
     render() {;
@@ -44,7 +43,7 @@ class NewsEntry extends React.Component {
                 </Typography>
                 <Typography variant="body1" className={classes.author}>
                     <Person className={classes.author_icon} /> 
-                    {newsData.author} | <DateLabel date={newsData.createdDate}></DateLabel>
+                    {newsData.author} | <DateLabel date={newsData.createdDate}/>
                 </Typography>
             </Paper>
         );
