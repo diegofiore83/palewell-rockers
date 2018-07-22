@@ -1,6 +1,6 @@
 import React from 'react';
 import { endpoints } from '../config/endpoints';
-import { Typography,Grid } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Fixtures from "../components/Fixtures";
@@ -18,7 +18,7 @@ class Home extends React.Component {
         return (
             <div className="app">
                 <img alt='' id='fullSquad' src={`${endpoints.assets}/fullsquad.jpg`}/>
-                <Grid container spacing={8}>
+                <Grid container spacing={32}>
                     <Grid item xs={12} sm={6}>
                         <Typography variant="headline" className={classes.section_title}>
                             The pitch:
