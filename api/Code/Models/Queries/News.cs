@@ -11,5 +11,6 @@ namespace PalewellRockers.Code.Models.Queries
     public string Body { get; set; }
     public DateTime CreatedDate { get; set; }
     public string Author { get; set; }
+    public bool IsMatchReport { get;set; }
   }
 }

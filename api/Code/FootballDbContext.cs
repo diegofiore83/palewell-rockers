@@ -15,9 +15,11 @@ namespace PalewellRockers.Code
         {
             builder.Entity<Player>().HasKey(p => p.Shortname);
             builder.Entity<News>().HasKey(p => p.Id);
+            builder.Entity<Fixture>().HasKey(p => p.Id);
         }
        
         public DbSet<Player> Players { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<Fixture> Fixture { get; set; }
     }
 }
